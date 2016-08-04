@@ -53,3 +53,18 @@ describe("/json",function () {
     });
 });
 
+describe("/www",function () {
+    it("should get the paratemeter from the www postman",function (done) {
+        request
+            .post('/')
+            .send({"name": "liuru"})
+            .expect({"name":"liuru"})
+            .end(function (err,res) {
+                if(err){
+                    done.fail(err);
+                }else {
+                    done();
+                }
+            })
+    });
+});
