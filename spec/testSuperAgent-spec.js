@@ -36,3 +36,20 @@ describe("/params",function () {
             })
     });
 });
+
+describe("/json",function () {
+    it("should get the paratemer from the json",function (done) {
+        request
+            .post('/json')
+            .send({"name":"zhangsha"})
+            .expect({"name":"zhangsha"})
+            .end(function (err,res) {
+                    if(err){
+                        done.fail(err);
+                    }else {
+                        done();
+                    }
+                })
+    });
+});
+
