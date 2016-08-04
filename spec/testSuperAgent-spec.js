@@ -22,3 +22,17 @@ describe("/query",function () {
     });
 });
 
+describe("/params",function () {
+    it("should get a paratemter from the params",function (done) {
+        request
+            .get('/userss')
+            .expect({"user":"userss"})
+            .end(function (err,res) {
+                if(err){
+                    done.fail(err);
+                }else{
+                    done();
+                }
+            })
+    });
+});
