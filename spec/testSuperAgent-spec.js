@@ -7,7 +7,7 @@ const request  = supertest(app);
 
 
 describe("/query",function () {
-    it("should get a paramter from the query",function (done) {
+    it("should get a parameter from the query",function (done) {
         request
             .post('/suer')
             .query({name: '1223'})
@@ -23,7 +23,7 @@ describe("/query",function () {
 });
 
 describe("/params",function () {
-    it("should get a paratemter from the params",function (done) {
+    it("should get a parameter from the params",function (done) {
         request
             .get('/userss')
             .expect({"user":"userss"})
@@ -38,7 +38,7 @@ describe("/params",function () {
 });
 
 describe("/json",function () {
-    it("should get the paratemer from the json",function (done) {
+    it("should get the parameter from the json",function (done) {
         request
             .post('/json')
             .send({"name":"zhangsha"})
@@ -54,7 +54,7 @@ describe("/json",function () {
 });
 
 describe("/www",function () {
-    it("should get the paratemeter from the www postman",function (done) {
+    it("should get the parameter from the www postman",function (done) {
         request
             .post('/')
             .send({"name": "liuru"})
@@ -67,4 +67,20 @@ describe("/www",function () {
                 }
             })
     });
+});
+
+describe("/header",function () {
+    it("should get the parameter from the header",function (done) {
+        request
+            .post('/header')
+            .set({name:"123"})
+            .expect('123')
+            .end(function (err,res) {
+                if(err){
+                    done.fail(err);
+                }else {
+                    done();
+                }
+            })
+    })
 });
